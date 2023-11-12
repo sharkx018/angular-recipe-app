@@ -18,6 +18,8 @@ export class ShoppingListComponent implements OnInit{
 
     ngOnInit() {
       this.ingredients = this.shoppingListService.getIngredients()
+
+      // listen to each time if the ingredient list is changed
       this.shoppingListService.ingredientChanged.subscribe((ingredient:Ingredient[])=>{
         this.ingredients = ingredient
       })
