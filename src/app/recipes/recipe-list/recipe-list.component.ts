@@ -28,7 +28,6 @@ export class RecipeListComponent {
 
   onRecipeItemNavigate(recipe: Recipe){
     this.router.navigate([recipe.id], {relativeTo:this.route})
-
   }
 
 
