@@ -10,21 +10,21 @@ export class RecipeService{
     }
 
     private recipes : Recipe[] = [
-        new Recipe('A Test Recipe 1',
+        new Recipe(1, 'A Test Recipe 1',
             'This is simply a test',
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJrXnVVt766jPFKXdsUeZGeoC5_JqAOHLQSw&usqp=CAU',
             [
                 new Ingredient("Meat", 2),
                 new Ingredient("Bread", 1)
             ]),
-        new Recipe('A Test Recipe 2',
+        new Recipe(2,'A Test Recipe 2',
             'This is simply a test',
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJrXnVVt766jPFKXdsUeZGeoC5_JqAOHLQSw&usqp=CAU',
             [
                 new Ingredient("Apple", 1),
                 new Ingredient("Honey", 3)
             ]),
-        new Recipe('A Test Recipe 3',
+        new Recipe(3, 'A Test Recipe 3',
             'This is simply a test',
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJrXnVVt766jPFKXdsUeZGeoC5_JqAOHLQSw&usqp=CAU',
             [
@@ -45,6 +45,16 @@ export class RecipeService{
 
     onAddIngredients(ingredients: Ingredient[]){
         this.shoppingListService.addManyIngredients(ingredients)
+    }
+
+    getRecipeByID(id: number){
+
+        const r = this.recipes.find((recipe)=>{
+            return recipe.id === id
+        })
+
+        return r
+
     }
 
 }

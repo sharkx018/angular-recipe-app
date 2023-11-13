@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {Recipe} from "../recipe.model";
 import {RecipeService} from "../recipe.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-recipe-list',
@@ -12,7 +13,9 @@ export class RecipeListComponent {
   // @Output() recipeSelected  = new EventEmitter<Recipe>()
   recipes : Recipe[] = [];
 
-  constructor(private recipeService: RecipeService) {
+  constructor(private recipeService: RecipeService,
+              private router: Router,
+              private route: ActivatedRoute) {
     this.recipes = recipeService.getRecipes()
   }
 
@@ -22,6 +25,12 @@ export class RecipeListComponent {
     // this.recipeSelected.emit(recipe)
     this.recipeService.onRecipeSelected(recipe)
   }
+
+  onRecipeItemNavigate(recipe: Recipe){
+    this.router.navigate([recipe.id], {relativeTo:this.route})
+
+  }
+
 
 
 }
