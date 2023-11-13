@@ -17,7 +17,7 @@ export class ShoppingEditComponent {
 
   onAddBtnClicked(){
 
-    var ingredient = new Ingredient(this.nameInput.nativeElement.value, this.amountInput.nativeElement.value)
+    let ingredient = new Ingredient(this.nameInput.nativeElement.value, this.amountInput.nativeElement.value)
     this.shoppingListService.addIngredients(ingredient)
 
     // reset the field
