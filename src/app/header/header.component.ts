@@ -7,13 +7,5 @@ import {Component, EventEmitter, Output} from '@angular/core';
 })
 export class HeaderComponent {
 
-  RECIPE_HEADER = "recipe_header"
-  SHOPPING_LIST_HEADER = "shopping_list_header"
-
-  @Output() headerEmitter = new EventEmitter<string>()
-
-  onSelect(header: string){
-    this.headerEmitter.emit(header)
-  }
 
 }
