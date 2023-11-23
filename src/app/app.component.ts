@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ShoppingListService} from "./shopping-list/shopping-list.service";
+import {AuthService} from "./auth/auth.service";
 
 @Component({
   selector: 'app-root',
@@ -7,16 +8,13 @@ import {ShoppingListService} from "./shopping-list/shopping-list.service";
   styleUrls: ['./app.component.css'],
   providers:[ShoppingListService],
 })
-export class AppComponent {
-  title = 'angular-recipe-app';
+export class AppComponent implements OnInit{
 
-  RECIPE_HEADER = "recipe_header"
-  SHOPPING_LIST_HEADER = "shopping_list_header"
+  constructor(private authService: AuthService) {
+  }
 
-  CURRENT_HEADER: string= this.RECIPE_HEADER
-
-  onHeaderClicked(header: string){
-    this.CURRENT_HEADER = header
+  ngOnInit() {
+    this.authService.autoLogin()
   }
 
 }
