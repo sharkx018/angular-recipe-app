@@ -2,6 +2,8 @@ import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {RecipeService} from "../recipes/recipe.service";
 import {Secrets} from "./secrets";
+import {Recipe} from "../recipes/recipe.model";
+import {map, tap} from "rxjs";
 
 @Injectable({providedIn:'root'})
 export class DataStorageService{
@@ -25,6 +27,29 @@ export class DataStorageService{
             }, (error)=>{
                 console.log(error)
             })
+    }
+
+    fetchRecipes(){
+
+        return this.httpClient
+            .get< Recipe[] >(
+                this.secrets.BASE_RECIPE_URL,
+            )
+            .pipe(map(recipes=>{
+
+                // Checking if empty ingredients is null or not, if it is null, assign the empty array
+                return recipes.map(recipe=>{
+                    return {...recipe, ingredients: recipe.ingredients ? recipe.ingredients : []}
+                })
+
+            }), tap(data=>{
+                this.recipeService.setRecipes(data)
+            }))
+
+            // .subscribe((recipes)=>{
+            //     this.recipeService.setRecipes(recipes)
+            //     console.log(recipes)
+            // })
     }
 
 }
