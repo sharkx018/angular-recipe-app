@@ -16,15 +16,16 @@ import {AuthInterceptorService} from "./auth/auth-interceptor.service";
 import {AlertComponent} from "./shared/alert/alert.component";
 import {RecipeModule} from "./recipes/recipe-module/recipe.module";
 import {ShoppingListModule} from "./shopping-list/shopping-list.module";
+import {SharedModule} from "./shared/shared.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    DropdownDirective,
     AuthComponent,
-    LoadingSpinnerComponent,
-    AlertComponent
+    // DropdownDirective, // once components are declared in some module, then individual components cannot be declared instead module which contains the components needs to be imported
+    // LoadingSpinnerComponent,
+    // AlertComponent
   ],
     imports: [
         BrowserModule,
@@ -34,7 +35,8 @@ import {ShoppingListModule} from "./shopping-list/shopping-list.module";
         HttpClientModule,
         ReactiveFormsModule,
         RecipeModule,
-        ShoppingListModule
+        ShoppingListModule,
+        SharedModule
     ],
   providers: [
       ShoppingListService,

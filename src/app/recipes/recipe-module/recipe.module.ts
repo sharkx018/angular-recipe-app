@@ -9,6 +9,7 @@ import {RouterModule} from "@angular/router";
 import {ReactiveFormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {RecipeRoutingModule} from "./recipe-routing.module";
+import {SharedModule} from "../../shared/shared.module";
 
 @NgModule({
     declarations:[
@@ -23,7 +24,8 @@ import {RecipeRoutingModule} from "./recipe-routing.module";
         RouterModule,
         CommonModule,
         ReactiveFormsModule,
-        RecipeRoutingModule
+        RecipeRoutingModule,
+        SharedModule
     ],
     // we can we remove it safely becoz the components are being used internally via recipe routing module only , so no need to expose them
     // exports:[
