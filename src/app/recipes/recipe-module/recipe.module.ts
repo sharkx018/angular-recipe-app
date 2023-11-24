@@ -25,7 +25,7 @@ import {RecipeRoutingModule} from "./recipe-routing.module";
         ReactiveFormsModule,
         RecipeRoutingModule
     ],
-    // we can we remove it safely becoz the components are being used internally via recipe routing module only , so no need to expose them 
+    // we can we remove it safely becoz the components are being used internally via recipe routing module only , so no need to expose them
     // exports:[
     //     RecipesComponent,
     //     RecipeListComponent,
