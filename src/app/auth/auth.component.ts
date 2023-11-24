@@ -46,13 +46,19 @@ export class AuthComponent implements OnDestroy{
             console.log(data)
             this.isLoading = false;
             this.router.navigate(['/recipes'])
-        },errorRes => {
-            console.log("Error: ", errorRes)
+        },errorMessage => {
+            console.log("Error: ", errorMessage)
             this.isLoading = false;
-            this.error = errorRes
+            this.error = errorMessage
+                this.showErrorAlert(errorMessage)
         })
 
         authForm.reset()
+    }
+
+    showErrorAlert(errorMessage: string){
+
+
     }
 
     ngOnDestroy() {
