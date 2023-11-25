@@ -1,5 +1,5 @@
 export const environment = {
     production: false,
-    FIREBASE_API_KEY : `$FIREBASE_API_KEY`,
-    BASE_RECIPE_URL : `$BASE_RECIPE_URL`
+    FIREBASE_API_KEY : process.env.FIREBASE_API_KEY,
+    BASE_RECIPE_URL : process.env.BASE_RECIPE_URL
 }
