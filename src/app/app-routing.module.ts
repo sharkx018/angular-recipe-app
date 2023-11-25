@@ -12,6 +12,16 @@ const appRoutes:Routes = [
         // loadChildren:'./recipes/recipe-module/recipe.module#RecipeModule'
         loadChildren:()=> import('./recipes/recipe-module/recipe.module').then(m => m.RecipeModule)
     },
+    {
+        path:'shopping-list',
+        // loadChildren:'./recipes/recipe-module/recipe.module#RecipeModule'
+        loadChildren:()=> import('./shopping-list/shopping-list.module').then(m => m.ShoppingListModule)
+    },
+    {
+        path:'auth',
+        // loadChildren:'./recipes/recipe-module/recipe.module#RecipeModule'
+        loadChildren:()=> import('./auth/auth.module').then(m => m.AuthModule)
+    },
 ]
 
 @NgModule({

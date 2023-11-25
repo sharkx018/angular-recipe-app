@@ -25,10 +25,8 @@ import { AuthModule } from "./auth/auth.module";
         NgOptimizedImage,
         AppRoutingModule,
         HttpClientModule,
-        ShoppingListModule,
         SharedModule,
         CoreModule,
-        AuthModule
     ],
   bootstrap: [AppComponent]
 })
