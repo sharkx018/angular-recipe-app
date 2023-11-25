@@ -18,12 +18,12 @@ import {RecipeModule} from "./recipes/recipe-module/recipe.module";
 import {ShoppingListModule} from "./shopping-list/shopping-list.module";
 import {SharedModule} from "./shared/shared.module";
 import {CoreModule} from "./core.module";
+import {AuthModule} from "./auth/auth.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    AuthComponent,
     // DropdownDirective, // once components are declared in some module, then individual components cannot be declared instead module which contains the components needs to be imported
     // LoadingSpinnerComponent,
     // AlertComponent
@@ -32,13 +32,12 @@ import {CoreModule} from "./core.module";
         BrowserModule,
         NgOptimizedImage,
         AppRoutingModule,
-        FormsModule,
         HttpClientModule,
-        ReactiveFormsModule,
         RecipeModule,
         ShoppingListModule,
         SharedModule,
-        CoreModule
+        CoreModule,
+        AuthModule
     ],
   bootstrap: [AppComponent]
 })
