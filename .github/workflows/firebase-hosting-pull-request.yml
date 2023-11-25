@@ -14,5 +14,6 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ANGULAR_RECIPE_APP_275B0 }}'
           projectId: angular-recipe-app-275b0
+        env:
           firebaseApiKey: '${{ secrets.FIREBASE_API_KEY }}'
           baseRecipeUrl: '${{ secrets.BASE_RECIPE_URL }}'
