@@ -31,6 +31,11 @@ fs.access(dir, fs.constants.F_OK, (err) => {
             const str = fs.readFileSync(dir + "/" + file).toString();
             console.log(str);
         }
+        if (fs.existsSync(dir + "/" + prodFile)) {
+            console.log("File is created", path.resolve(dir + "/" + prodFile));
+            const str = fs.readFileSync(dir + "/" + prodFile).toString();
+            console.log(str);
+        }
     } catch (error) {
         console.error(error);
         process.exit(1);
