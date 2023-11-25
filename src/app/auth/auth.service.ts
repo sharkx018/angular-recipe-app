@@ -1,10 +1,9 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
-import {Secrets} from "../shared/secrets";
 import {BehaviorSubject, catchError, Subject, tap, throwError} from "rxjs";
 import {User} from "./user.model";
 import {Router} from "@angular/router";
-import {load} from "@angular-devkit/build-angular/src/utils/server-rendering/esm-in-memory-file-loader";
+import {environment} from "../../environment/environment";
 
 
 export interface AuthResponseData {
@@ -23,7 +22,6 @@ export class AuthService{
     user = new BehaviorSubject<User>(null)
     private tokenExpirationTimer:any
 
-    secrets = new Secrets()
     FIREBASE_SIGN_UP_ENDPOINT = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key="
     FIREBASE_SIGN_IN_ENDPOINT = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key="
 
@@ -34,7 +32,7 @@ export class AuthService{
 
         return this.httpClient
             .post<AuthResponseData>(
-            this.FIREBASE_SIGN_UP_ENDPOINT + this.secrets.FIREBASE_API_KEY,
+            this.FIREBASE_SIGN_UP_ENDPOINT + environment.FIREBASE_API_KEY,
             {
                     email: email,
                     password:password,
@@ -58,7 +56,7 @@ export class AuthService{
     login(email: string, password: string){
 
         return this.httpClient
-            .post<AuthResponseData>(this.FIREBASE_SIGN_IN_ENDPOINT + this.secrets.FIREBASE_API_KEY,{
+            .post<AuthResponseData>(this.FIREBASE_SIGN_IN_ENDPOINT + environment.FIREBASE_API_KEY,{
             email:email,
             password: password,
             returnSecureToken: true

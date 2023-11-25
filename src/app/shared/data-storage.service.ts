@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {RecipeService} from "../recipes/recipe.service";
-import {Secrets} from "./secrets";
+import {environment} from "../../environment/environment";
 import {Recipe} from "../recipes/recipe.model";
 import {exhaustMap, map, take, tap} from "rxjs";
 import {AuthService} from "../auth/auth.service";
@@ -10,7 +10,7 @@ import {AuthService} from "../auth/auth.service";
 export class DataStorageService{
 
     // BASE_RECIPE_URL = "https://angular-recipe-app-275b0-default-rtdb.firebaseio.com/recipes.json"
-    secrets = new Secrets()
+    // secrets = new Secrets()
 
     constructor(private httpClient: HttpClient,
                 private recipeService: RecipeService,
@@ -22,7 +22,7 @@ export class DataStorageService{
 
         return this.httpClient
             .put(
-                this.secrets.BASE_RECIPE_URL,
+                environment.BASE_RECIPE_URL,
                 recipes
             )
             .subscribe((response)=>{
@@ -36,7 +36,7 @@ export class DataStorageService{
 
         return this.httpClient
             .get< Recipe[] >(
-                this.secrets.BASE_RECIPE_URL
+                environment.BASE_RECIPE_URL
             )
             .pipe(map(recipes=>{
 
@@ -54,7 +54,7 @@ export class DataStorageService{
             .pipe(take(1), exhaustMap((user)=>{
                 return this.httpClient
                         .get< Recipe[] >(
-                            this.secrets.BASE_RECIPE_URL,{
+                            environment.BASE_RECIPE_URL,{
                                 params: new HttpParams().set('auth', user.token)
                             }
                         )
