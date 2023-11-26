@@ -11,11 +11,13 @@ import { ShoppingListModule } from "./shopping-list/shopping-list.module";
 import { SharedModule } from "./shared/shared.module";
 import { CoreModule } from "./core.module";
 import { AuthModule } from "./auth/auth.module";
+import {FooterComponent} from "./footer/footer.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    FooterComponent
     // DropdownDirective, // once components are declared in some module, then individual components cannot be declared instead module which contains the components needs to be imported
     // LoadingSpinnerComponent,
     // AlertComponent

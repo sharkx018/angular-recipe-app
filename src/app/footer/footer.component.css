@@ -1,0 +1,25 @@
+.footer {
+    background-color: #6fd7b2; /* Pink color */
+    color: #fff; /* White text */
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    animation: bounce 1s infinite alternate; /* CSS animation */
+}
+
+/* Heart icon styles */
+.fa-heart {
+    color: #fff;
+}
+
+/* CSS animation keyframes */
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
