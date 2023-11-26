@@ -6,3 +6,7 @@ node_modules
 
 # Ignore the .angular/ directory
 .angular/
+
+.firebase
+
+dist/*
